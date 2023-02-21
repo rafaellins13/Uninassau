@@ -1,0 +1,10 @@
+public class FatorialRecursivo {
+	
+	public int Fatorial(int valor) {
+		if (valor ==1 )
+			return 1;
+		else
+			return(valor*Fatorial(valor-1));
+	}
+
+}
