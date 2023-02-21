@@ -23,6 +23,7 @@ public class Main2{
 				opcao = -1;
 			}
 			if(opcao == 2){
+				System.out.println("******* IMPRIMINDO A LISTA *********");
 				Aluno2 percorrer = new Aluno2();
 				percorrer = head.proximo;
 				imprimirLista(percorrer);
