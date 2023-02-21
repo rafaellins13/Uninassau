@@ -1,0 +1,25 @@
+public class Teste {
+	public static void main(String[] args) {	
+		
+		Imprimir sequencia = new Imprimir();
+		
+		sequencia.ImprimirMaiorZero(3);
+				
+	//FatorialRecursivo f = new FatorialRecursivo();
+				
+	//System.out.println(f.Fatorial(4));
+	
+	//System.out.println("Referencia de f:    " + f);
+	
+	//FatorialRecursivo g = new FatorialRecursivo();
+	
+	//System.out.println("Referencia de g:    " +g);
+	
+	//g = f;
+	
+	//System.out.println("Executado g = f:    ");
+	//System.out.println("Referencia de f:    " +f);
+	//System.out.println("Referencia de g:    " +g);
+	
+	}
+}
