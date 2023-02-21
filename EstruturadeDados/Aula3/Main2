@@ -1,0 +1,105 @@
+import java.util.*;
+
+public class Main2{
+
+	public static void main(String[] args) {
+	
+		Aluno2 head = new Aluno2();
+		head.setProximo(null);
+		
+		var opcao = 0;
+		Scanner opc = new Scanner(System.in);
+		
+		System.out.println("1 - Cadastrar novo aluno.");
+		System.out.println("2 - Imprimir toda a lista.");
+		System.out.println("0 - Sair.");
+		opcao = Integer.parseInt(opc.nextLine());
+		
+		while (opcao != 0) {
+			if (opcao == 1) {
+				Aluno2 alunocadastrar = new Aluno2();	
+				cadastrarAluno (alunocadastrar, head);
+				alunocadastrar = null;
+				opcao = -1;
+			}
+			if(opcao == 2){
+				Aluno2 percorrer = new Aluno2();
+				percorrer = head.proximo;
+				imprimirLista(percorrer);
+				opcao = -1;
+			}
+						
+			System.out.println("*************************");
+			System.out.println("1 - Cadastrar novo aluno.");
+			System.out.println("2 - Imprimir toda a lista.");
+			System.out.println("0 - Sair.");
+			opcao = Integer.parseInt(opc.nextLine());
+			
+			if(opcao ==0) {
+				System.out.println("Programa Finalizado!");
+				break;
+			}
+		}
+		
+	}
+	
+
+	
+	public static void cadastrarAluno(Aluno2 alunoCadastrar, Aluno2 head) {
+		
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		
+		System.out.println("Digite o nome do aluno:");
+		alunoCadastrar.setNome(teclado.nextLine());
+		System.out.println("Digite a disciplina do aluno:");
+		alunoCadastrar.setDisciplina(teclado.nextLine());
+		System.out.println("Digite a matricula do aluno:");
+		alunoCadastrar.setMatricula(Integer.parseInt(teclado.nextLine()));
+		System.out.println("Digite a nota 1 do aluno:");
+		alunoCadastrar.setNota1(Double.parseDouble(teclado.nextLine()));
+		System.out.println("Digite a nota 2 do aluno:");
+		alunoCadastrar.setNota2(Double.parseDouble(teclado.nextLine()));
+		
+		if (head == null) {
+			head.setProximo(alunoCadastrar);
+		}else {
+			retornarUltimoLista(head).proximo = alunoCadastrar;
+		}
+		
+		teclado = null;
+		
+		
+	}
+
+	public static Aluno2 retornarUltimoLista (Aluno2 inicio) {
+		Aluno2 acharFim = new Aluno2();
+		acharFim = inicio;
+		while(acharFim.proximo != null) {
+			acharFim = acharFim.proximo;
+		}
+		return acharFim;
+	}
+	
+	public static void imprimirLista(Aluno2 percorrer) {
+		if (percorrer == null) {
+			System.out.println("Lista vazia!");
+		}
+		while (percorrer != null) {
+			System.out.println("Nome do aluno: " + percorrer.getNome());
+			System.out.println("Nome do disciplina: " + percorrer.getDisciplina());
+			System.out.println("Nome do matricula: " + percorrer.getMatricula());
+			System.out.println("Nome do nota 1: " + percorrer.getNota1());
+			System.out.println("Nome do nota 2: " + percorrer.getNota2());
+			System.out.println(" ");
+			percorrer = percorrer.proximo;
+			}
+	}
+	
+	public static void cls(){
+            for(int i = 0; i < 10; i++)
+            System.out.println(" ");
+    }
+	
+}
