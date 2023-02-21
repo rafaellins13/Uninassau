@@ -1,0 +1,71 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		Aluno2 head = new Aluno2();
+		Aluno2 percorrer = new Aluno2();
+		
+		head.setProximo(null);
+		
+		for (int i=1; i<=3; i++) {
+			Aluno2 aluno = new Aluno2();
+			System.out.println("Cadastrando novo aluno.");
+			
+			cadastrarAluno (aluno);
+
+			
+			if (head == null) {
+				head.setProximo(aluno);
+			}else {
+				retornarUltimoLista(head).proximo = aluno;
+			}
+			aluno = null;
+		}
+	
+	percorrer = head.proximo;
+	while (percorrer != null) {
+		System.out.println("Nome do aluno: " + percorrer.getNome());
+		System.out.println("Nome do disciplina: " + percorrer.getDisciplina());
+		System.out.println("Nome do matricula: " + percorrer.getMatricula());
+		System.out.println("Nome do nota 1: " + percorrer.getNota1());
+		System.out.println("Nome do nota 2: " + percorrer.getNota2());
+		System.out.println(" ");
+		percorrer = percorrer.proximo;
+		}
+
+	}
+	
+	public static void cadastrarAluno(Aluno2 alunoCadastrar) {
+		
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		
+		System.out.println("Digite o nome do aluno:");
+		alunoCadastrar.setNome(teclado.nextLine());
+		System.out.println("Digite a disciplina do aluno:");
+		alunoCadastrar.setDisciplina(teclado.nextLine());
+		System.out.println("Digite a matricula do aluno:");
+		alunoCadastrar.setMatricula(Integer.parseInt(teclado.nextLine()));
+		System.out.println("Digite a nota 1 do aluno:");
+		alunoCadastrar.setNota1(Double.parseDouble(teclado.nextLine()));
+		System.out.println("Digite a nota 2 do aluno:");
+		alunoCadastrar.setNota2(Double.parseDouble(teclado.nextLine()));
+		
+		teclado = null;
+		
+		
+	}
+
+	public static Aluno2 retornarUltimoLista (Aluno2 inicio) {
+		Aluno2 acharFim = new Aluno2();
+		acharFim = inicio;
+		while(acharFim.proximo != null) {
+			acharFim = acharFim.proximo;
+		}
+		return acharFim;
+	}
+	
+}
