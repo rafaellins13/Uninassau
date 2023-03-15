@@ -33,8 +33,6 @@ public class Main2{
 			
 			if(opcao == 3){
 				System.out.println("******* REMOVENDO ULTIMO ELEMENTO *********");
-				Aluno2 remover = new Aluno2();
-				remover = head;
 				removerUltimoElemento(head);
 				opcao = -1;
 			}
